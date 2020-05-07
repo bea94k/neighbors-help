@@ -2,11 +2,16 @@
 // making new order
 
 import React from 'react';
+import FormAddToOrder from './Components/FormAddToOrder';
+import ViewAddToOrder from './Components/ViewAddToOrder';
 
 const HomeCustomer = () => {
     return (
         <div>
-            HOME CUSTOMER
+
+            <FormAddToOrder />
+            <ViewAddToOrder />
+
         </div>
     );
 }
