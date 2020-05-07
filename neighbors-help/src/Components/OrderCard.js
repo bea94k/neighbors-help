@@ -7,7 +7,7 @@ const PostCard = ({ username, firstname, address, phone, order, link }) => {
     let i;
     let extractedOrder = [];
     for (i = 0; i < order.length; i++) {
-        let productSet = `${order[i].name} - ${order[i].quantity}`;
+        let productSet = `${order[i].name} - ${order[i].quantity}; `;
         extractedOrder.push(productSet);
     }
 

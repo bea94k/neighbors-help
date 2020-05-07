@@ -8,18 +8,24 @@ import OrderCard from './Components/OrderCard';
 
 const HomeHelper = () => {
     const [order, setOrder] = useState([]);
+    const [message, setMessage] = useState();
 
     useEffect(() => {
+        setMessage(<h4>Loading...</h4>);
         axios.get('http://localhost:3005/orders')
             .then((response) => {
                 const ordersFromDB = response.data.slice(0, 15);
                 setOrder(ordersFromDB);
                 console.log(ordersFromDB);
             })
+            .catch((err) => {
+                setMessage(`Something went wrong. ${err}`)
+            })
     }, []);
 
 
-    const OrderList = order.map((o) => {
+    const OrderList = order.length > 0 ? order.map((o) => {
+        // if the orders list is not empty, map and display the orders from DB
         return (
             <OrderCard
                 key={o.id}
@@ -30,7 +36,8 @@ const HomeHelper = () => {
                 order={o.order}
             />
         )
-    })
+        // if the orders db empty, display a "no orders found" message
+    }) : <h4>{message}</h4>
 
 
     return (
