@@ -7,6 +7,8 @@ import Register from './Register';
 import HomeHelper from './HomeHelper';
 import HomeCustomer from './HomeCustomer';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const App = () => {
   return (
     <Router>
