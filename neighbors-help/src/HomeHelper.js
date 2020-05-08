@@ -5,6 +5,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import OrderCard from './Components/OrderCard';
+import CardColumns from 'react-bootstrap/CardColumns';
+
 
 const HomeHelper = () => {
     const [order, setOrder] = useState([]);
@@ -42,8 +44,10 @@ const HomeHelper = () => {
 
     return (
         <div>
-            HOME HELPER
-            {OrderList}
+            <h2>Who do you want to help today?</h2>
+            <CardColumns>
+                {OrderList}
+            </CardColumns>
         </div>
     );
 }
