@@ -1,42 +1,41 @@
 import React from 'react';
-import Quantity from '../Quantity';
 import ListGroup from 'react-bootstrap/ListGroup';
-import ListGroupItem from 'react-bootstrap/ListGroupItem';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
-const VegetableList = () => {
+const VegetableList = (props) => {
 
     const products = [{
-        vegetable: { v_1: "Tomato", v_2: "Onion", v_3: "Carrot", v_4: "Potato" },
-        fruit: { f_1: "Strawberry", f_2: "Orange", f_3: "Peach", f_4: "Pear" }
+        vegetable: ["Tomato", "Onion", "Carrot", "Potato"],
+        fruit: ["Strawberry", "Apple", "Orange", "Pear"]
     }];
 
     const vegetableList = products.map((product, index) => {
         return (
             <div key={index}>
-                <ListGroup horizontal className="my-3">
-                    <ListGroup.Item>Vegetable:</ListGroup.Item>
-                    <ListGroup.Item>{product.vegetable.v_1} <Quantity /></ ListGroup.Item>
-                    <ListGroup.Item>{product.vegetable.v_2} <Quantity /></ ListGroup.Item>
-                    <ListGroup.Item>{product.vegetable.v_3} <Quantity /></ ListGroup.Item>
-                    <ListGroup.Item>{product.vegetable.v_4} <Quantity /></ ListGroup.Item>
-                </ListGroup>
-                <ListGroup horizontal className="my-3">
-                    <ListGroup.Item>Fruit:</ListGroup.Item>
-                    <ListGroup.Item>{product.fruit.f_1} <Quantity /></ ListGroup.Item>
-                    <ListGroup.Item>{product.fruit.f_2} <Quantity /></ ListGroup.Item>
-                    <ListGroup.Item>{product.fruit.f_3} <Quantity /></ ListGroup.Item>
-                    <ListGroup.Item>{product.fruit.f_4} <Quantity /></ ListGroup.Item>
-                </ListGroup>
-            </div>
+                <Form onSubmit={props.submitHandler}>
+                    <ListGroup horizontal className="my-3" controlId="veg">
+                        <ListGroup.Item><Form.Label controlId="veg" htmlFor="veg"> Vegetable: </Form.Label></ListGroup.Item>
+                        {product.vegetable.map(element => {
+                            return <ListGroup.Item>{element} <Form.Control controlId="veg" size="sm" type="number" min="0" max="5" placeholder="Select quantity" onChange={props.changeQuantityHandler} name="vegetable" /> </ListGroup.Item>
+                        })}
+                    </ListGroup>
+                    <ListGroup horizontal className="my-3" controlId="fruit">
+                        <ListGroup.Item><Form.Label controlId="fruit" htmlFor="fruit">Fruit: </Form.Label></ListGroup.Item>
+                        {product.fruit.map(element => {
+                            return <ListGroup.Item>{element}<Form.Control controlId="fruit" size="sm" type="number" min="0" max="5" placeholder="Select quantity" onChange={props.changeQuantityHandler} name="fruit" /> </ListGroup.Item>
+                        })}
+                    </ListGroup>
+                    <Button type="submit">Submit</Button>
+                </Form>
+            </div >
         )
     });
-
     return (
         <div>
             {vegetableList}
         </div>
     );
 };
-
 
 export default VegetableList;

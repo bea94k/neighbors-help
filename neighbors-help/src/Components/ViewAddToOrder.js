@@ -2,11 +2,13 @@
 import React from 'react';
 
 
-const ViewAddToOrder = ({ product }) => {
+const ViewAddToOrder = (props) => {
 
     return (
         <div>
-            product list
+            <h1>Result</h1>
+            {/* <p>Item:<span>{props.productName}</span> </p> */}
+            <p>Quantity:<span>{props.quantity}</span></p>
         </div>
     );
 }

@@ -1,13 +1,16 @@
 import React from 'react';
 import Quantity from '../Quantity';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
-const MeatList = () => {
+
+const MeatList = (props) => {
 
     const products = [{
-        chicken: { c_1: "Breast", c_2: "Legs", c_3: "Wing" },
-        beef: { b_1: "Rib-Steak", b_2: "Sirloin", b_3: "Shank" },
-        pork: { p_1: "Ham", p_2: "Belly", p_3: "Spine" }
+        chicken: ["Breast", "Legs", "Wing"],
+        beef: ["Rib-Steak", "Sirloin", "Shank"],
+        pork: ["Ham", "Belly", "Spine"]
     }];
     //console.log(products);
 
@@ -15,24 +18,27 @@ const MeatList = () => {
 
         return (
             <div key={index}>
-                <ListGroup horizontal className="my-3">
-                    <ListGroup.Item>Chicken: </ListGroup.Item>
-                    <ListGroup.Item>{product.chicken.c_1} <Quantity /></ListGroup.Item>
-                    <ListGroup.Item>{product.chicken.c_2} <Quantity /></ListGroup.Item>
-                    <ListGroup.Item>{product.chicken.c_3} <Quantity /></ListGroup.Item>
-                </ListGroup>
-                <ListGroup horizontal className="my-3">
-                    <ListGroup.Item>Beef: </ListGroup.Item>
-                    <ListGroup.Item>{product.beef.b_1} <Quantity /></ListGroup.Item>
-                    <ListGroup.Item>{product.beef.b_2} <Quantity /></ListGroup.Item>
-                    <ListGroup.Item>{product.beef.b_3} <Quantity /></ListGroup.Item>
-                </ListGroup>
-                <ListGroup horizontal>
-                    <ListGroup.Item>Pork:</ListGroup.Item>
-                    <ListGroup.Item>{product.pork.p_1} <Quantity /></ListGroup.Item>
-                    <ListGroup.Item>{product.pork.p_2} <Quantity /></ListGroup.Item>
-                    <ListGroup.Item>{product.pork.p_3} <Quantity /></ListGroup.Item>
-                </ListGroup>
+                <Form>
+                    <ListGroup horizontal className="my-3">
+                        <ListGroup.Item> Chicken: </ListGroup.Item>
+                        {product.chicken.map(element => {
+                            return <ListGroup.Item>{element} <Form.Control size="sm" type="number" min="0" max="5" placeholder="Select quantity" onChange={props.changeQuantityHandler} name="chicken" /></ListGroup.Item>
+                        })}
+                    </ListGroup>
+                    <ListGroup horizontal className="my-3">
+                        <ListGroup.Item>Beef:</ListGroup.Item>
+                        {product.beef.map(element => {
+                            return <ListGroup.Item>{element}  <Form.Control size="sm" type="number" min="0" max="5" placeholder="Select quantity" onChange={props.changeQuantityHandler} name="beef" /></ListGroup.Item>
+                        })}
+                    </ListGroup>
+                    <ListGroup horizontal className="my-3">
+                        <ListGroup.Item>Pork:</ListGroup.Item>
+                        {product.pork.map(element => {
+                            return <ListGroup.Item>{element}  <Form.Control size="sm" type="number" min="1" max="5" placeholder="Select quantity" onChange={props.changeQuantityHandler} name="pork" /></ListGroup.Item>
+                        })}
+                    </ListGroup>
+                    <Button type="submit">Submit</Button>
+                </Form>
             </div>
         )
     });

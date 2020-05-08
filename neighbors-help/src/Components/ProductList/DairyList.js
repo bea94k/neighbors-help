@@ -1,31 +1,34 @@
 import React from 'react';
-import Quantity from '../Quantity';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
-const DairyList = () => {
+const DairyList = (props) => {
 
     const products = [{
-        milk: { m_1: "While Milk", m_2: "Lowfat Milk", m_3: "Soy Milk", m_4: "Almond Milk" },
-        cheese: { c_1: "Cream Cheese", c_2: "Brie", c_3: "Gouda", c_4: "Cheddar" }
+        milk: ["While Milk", "Lowfat Milk", "Soy Milk", "Almond Milk"],
+        cheese: ["Cream Cheese", "Brie", "Gouda", "Cheddar"]
     }];
 
     const dairyList = products.map((product, index) => {
+
         return (
-            <div key={index}>
-                <ListGroup horizontal className="my-3">
-                    <ListGroup.Item> Milk: </ListGroup.Item>
-                    <ListGroup.Item>{product.milk.m_1} <Quantity /></ListGroup.Item>
-                    <ListGroup.Item>{product.milk.m_2} <Quantity /></ListGroup.Item>
-                    <ListGroup.Item>{product.milk.m_3} <Quantity /></ListGroup.Item>
-                    <ListGroup.Item>{product.milk.m_4} <Quantity /></ListGroup.Item>
-                </ListGroup>
-                <ListGroup horizontal className="my-3">
-                    <ListGroup.Item>Cheese:</ListGroup.Item>
-                    <ListGroup.Item>{product.cheese.c_1} <Quantity /></ListGroup.Item>
-                    <ListGroup.Item>{product.cheese.c_2} <Quantity /></ListGroup.Item>
-                    <ListGroup.Item>{product.cheese.c_3} <Quantity /></ListGroup.Item>
-                    <ListGroup.Item>{product.cheese.c_4} <Quantity /></ListGroup.Item>
-                </ListGroup>
+            <div key={index} >
+                <Form onSubmit={props.submitHandler}>
+                    <ListGroup horizontal className="my-3">
+                        <ListGroup.Item> Milk: </ListGroup.Item>
+                        {product.milk.map(element => {
+                            return <ListGroup.Item>{element} <Form.Control size="sm" type="number" min="0" max="5" placeholder="Select quantity" onChange={props.changeQuantityHandler} name="milk" /></ListGroup.Item>
+                        })}
+                    </ListGroup>
+                    <ListGroup horizontal className="my-3">
+                        <ListGroup.Item>Cheese:</ListGroup.Item>
+                        {product.cheese.map(element => {
+                            return <ListGroup.Item>{element}  <Form.Control size="sm" type="number" min="0" max="5" placeholder="Select quantity" onChange={props.changeQuantityHandler} name="cheese" /></ListGroup.Item>
+                        })}
+                    </ListGroup>
+                    <Button type="submit">Submit</Button>
+                </Form>
             </div>
         )
     });
