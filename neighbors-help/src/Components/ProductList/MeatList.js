@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import Quantity from '../Quantity';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Form from 'react-bootstrap/Form';
@@ -21,14 +21,14 @@ const MeatList = (props) => {
                 <Form>
                     <ListGroup horizontal className="my-3">
                         <ListGroup.Item> Chicken: </ListGroup.Item>
-                        {product.chicken.map(element => {
-                            return <ListGroup.Item>{element} <Form.Control size="sm" type="number" min="0" max="5" placeholder="Select quantity" onChange={props.changeQuantityHandler} name="chicken" /></ListGroup.Item>
+                        {product.chicken.map((element, id) => {
+                            return <ListGroup.Item key={id}>{element} <Form.Control size="sm" type="number" min="0" max="5" placeholder="Select quantity" onChange={props.changeQuantityHandler} name="chicken" /></ListGroup.Item>
                         })}
                     </ListGroup>
                     <ListGroup horizontal className="my-3">
                         <ListGroup.Item>Beef:</ListGroup.Item>
-                        {product.beef.map(element => {
-                            return <ListGroup.Item>{element}  <Form.Control size="sm" type="number" min="0" max="5" placeholder="Select quantity" onChange={props.changeQuantityHandler} name="beef" /></ListGroup.Item>
+                        {product.beef.map((element, id) => {
+                            return <ListGroup.Item key={id}>{element}  <Form.Control size="sm" type="number" min="0" max="5" placeholder="Select quantity" onChange={props.changeQuantityHandler} name="beef" /></ListGroup.Item>
                         })}
                     </ListGroup>
                     <ListGroup horizontal className="my-3">
@@ -51,4 +51,4 @@ const MeatList = (props) => {
 };
 
 
-export default MeatList;
+export default MeatList; */
