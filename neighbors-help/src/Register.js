@@ -6,7 +6,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-// TO DO: HOW TO ADD isHelper TO DB!
+// NOTE!!! the isHelper has to be changed in the users' DB = can't be a boolean (input value=String, can't be a boolean)
+// addUserHandler - reset inputs and success message
 
 
 const Register = () => {
@@ -18,7 +19,7 @@ const Register = () => {
         password: '',
         address: '',
         phone: '',
-        isHelper: ''
+        isHelper: 'helper'
     })
 
     const changeValueHandler = (event) => {
@@ -27,6 +28,13 @@ const Register = () => {
             [event.target.name]: event.target.value
         })
     };
+
+    const changeRadioHandler = (event) => {
+        setNewUser({
+            ...newUser,
+            isHelper: event.target.value
+        })
+    }
 
     const addUserHandler = (e) => {
         e.preventDefault();
@@ -76,8 +84,18 @@ const Register = () => {
                 </Form.Group>
 
                 <div key={'helper-or-customer'} className="mb-3">
-                    <Form.Check inline label="I want to help others" type='radio' name='isHelper' value='true' id='helper' />
-                    <Form.Check inline label="I need some help" type='radio' name='isHelper' value='false' id='customer' />
+                    <Form.Check
+                        inline label="I want to help others"
+                        type='radio' name='isHelper'
+                        value='helper' id='helper'
+                        onChange={changeRadioHandler}
+                        checked={newUser.isHelper === 'helper'} />
+                    <Form.Check
+                        inline label="I need some help"
+                        type='radio' name='isHelper'
+                        value='customer' id='customer'
+                        onChange={changeRadioHandler}
+                        checked={newUser.isHelper === 'customer'} />
                 </div>
 
                 <Button variant="primary" type="submit" onClick={addUserHandler}>
