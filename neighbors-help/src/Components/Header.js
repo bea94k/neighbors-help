@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="/">Grocery Neighbors</Navbar.Brand>
+    <Navbar collapseOnSelect expand="lg" bg="success" variant="dark">
+      <Navbar.Brand href="/">
+        <img id="brand-image" alt="Website logo" src="Assets/logo.jpeg" />
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mx-auto">
@@ -30,7 +32,7 @@ const Header = () => {
             placeholder="Search"
             className="mr-sm-2"
           />
-          <Button variant="outline-info" type="submit">
+          <Button variant="outline-secondary" type="submit">
             Search
           </Button>
         </Form>
