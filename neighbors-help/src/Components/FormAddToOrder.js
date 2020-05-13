@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import './FormAddToOrder.css';
+import Button from 'react-bootstrap/Button';
 
 const FormCategories = () => {
 
@@ -17,7 +19,7 @@ const FormCategories = () => {
 
     const categoryList = categories.map(cat => {
         return (
-            <p key={cat.id}
+            <p className="categoryCard" key={cat.id}
                 onClick={() => showProductHandler(cat.id)}>
                 {cat.name}
             </p>
@@ -47,33 +49,45 @@ const FormCategories = () => {
 
     const productList = products.map(prod => {
         return (
-            <div key={prod.id}>
+            <div key={prod.id} className="product">
                 <h2>{prod.name}</h2>
                 <label htmlFor="">Select quantity</label>
                 <input type="number" name={prod.name} id={prod.id} onChange={(event) => addItemHandler(event, prod.catId)} min="0" max="5" />
-                <button onClick={addToOrderHandler}>PreOrder</button>
+                <Button variant="outline-success" onClick={addToOrderHandler}>PreOrder</Button>
             </div>
         );
     });
 
     const orderList = order.map((o) => {
         return (
-            <p key={o.prodId} >
-                {o.name}: {o.quantity}</p>
+            <p key={o.prodId} className="preOrder">
+                x {o.name}: {o.quantity}</p>
         );
     });
+
+    const postOrderHandler = () => {
+        axios.post('http://localhost:3001/orders', { order }).then(response => {
+            console.log(response.data);
+            setOrder([]);
+        });
+    };
 
     return (
         <div>
             <div>
                 <h1>Choose a category</h1>
-                <p>{categoryList}</p>
-                <p>{productList}</p>
+                <div>{categoryList}</div>
+                <div>{productList}</div>
             </div>
             <div>
-                <h2>Your preorder</h2>
-                <p>{orderList}</p>
+                {orderList == 0 ? (<p>Please select products</p>) : (
+                    <div>
+                        <h2>Your preorder</h2>
+                        <p>{orderList}</p>
+                    </div>
+                )}
             </div>
+            <Button variant="outline-success" onClick={postOrderHandler}>Place your order</Button>
         </div>
     );
 }

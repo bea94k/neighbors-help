@@ -11,7 +11,6 @@ const HomeCustomer = () => {
         <div>
             <FormAddToOrder />
             <ViewAddToOrder />
-
         </div>
     )
 }
