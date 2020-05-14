@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 // NOTE!!! the isHelper has to be changed in the users' DB = can't be a boolean (input value=String, can't be a boolean)
-// addUserHandler - reset inputs and success message
+// addUserHandler - reset inputs (no success message cause the backend will redirect to login?)
 
 
 const Register = () => {
@@ -38,7 +38,7 @@ const Register = () => {
 
     const addUserHandler = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3005/users', newUser)
+        axios.post('http://localhost:3001/users', newUser)
             .then(response => { console.log(response.data) })
     }
 

@@ -7,6 +7,7 @@ import axios from 'axios';
 import OrderCard from './Components/OrderCard';
 import CardColumns from 'react-bootstrap/CardColumns';
 
+// TO DO: when orders db empty, make the message say it's empty, not hang on "loading..."
 
 const HomeHelper = () => {
     const [order, setOrder] = useState([]);
@@ -14,7 +15,7 @@ const HomeHelper = () => {
 
     useEffect(() => {
         setMessage(<h4>Loading...</h4>);
-        axios.get('http://localhost:3005/orders')
+        axios.get('http://localhost:3001/orders')
             .then((response) => {
                 const ordersFromDB = response.data.slice(0, 15);
                 setOrder(ordersFromDB);
