@@ -1,18 +1,41 @@
 // home page with login form
 
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+// import axios from 'axios';
+import { Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 const Login = () => {
+
+    const [loggingUser, setLoggingUser] = useState({
+        username: '',
+        password: ''
+    })
+
+    const changeValueHandler = (event) => {
+        setLoggingUser({
+            ...loggingUser,
+            [event.target.name]: event.target.value
+        })
+    };
+
+    const logUserInHandler = (e) => {
+        e.preventDefault();
+        console.log(loggingUser)
+        // for now it just adds to the json DB
+        /*  axios.post('http://localhost:3001/users', loggingUser)
+             .then(response => { console.log(response) }) */
+    }
+
+
     return (
         <div>
             <Form style={{ width: '80%' }}>
                 <h2>Log in</h2>
                 <Form.Group controlId="formUsername">
                     <Form.Label>Username:</Form.Label>
-                    <Form.Control type="text" placeholder="Enter your username" />
+                    <Form.Control type="text" name="username" placeholder="Enter your username" onChange={changeValueHandler} />
                     <Form.Text className="text-muted">
                         Enter your username in the exact same form as you registered it.
                       </Form.Text>
@@ -20,9 +43,9 @@ const Login = () => {
 
                 <Form.Group controlId="formPassword">
                     <Form.Label>Password:</Form.Label>
-                    <Form.Control type="password" placeholder="Enter your password" />
+                    <Form.Control type="password" name="password" placeholder="Enter your password" onChange={changeValueHandler} />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" onClick={logUserInHandler}>
                     Submit
                   </Button>
             </Form>

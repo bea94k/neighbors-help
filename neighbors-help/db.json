@@ -115,6 +115,21 @@
       "phone": "11111111111111111",
       "isHelper": "helper",
       "id": 1
+    },
+    {
+      "username": "bea94k",
+      "password": "bea94k",
+      "id": 2
+    },
+    {
+      "firstname": "jane",
+      "lastname": "tarzan",
+      "username": "jane",
+      "password": "jsne",
+      "address": "jungle",
+      "phone": "235676534",
+      "isHelper": "helper",
+      "id": 3
     }
   ]
 }

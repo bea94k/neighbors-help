@@ -2,7 +2,7 @@ import React from "react";
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-import { Link } from "react-router-dom";
+/* import { Link } from "react-router-dom"; */
 
 const PostCard = ({ username, firstname, address, phone, order, link }) => {
     const mappedOrder = order.map((productSet) => {
