@@ -42,6 +42,9 @@ const Register = () => {
             .then(response => { console.log(response.data) })
     }
 
+    // backend: bodyparser, remember cross-origin
+    // endpoint app.post('/users', (req, res) => { req.body.newUser  or maybe req.params.newUser }) {}
+
 
     return (
         <div>
