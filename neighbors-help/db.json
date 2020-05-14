@@ -1,0 +1,78 @@
+{
+    "products": [
+        {
+            "catId": 1,
+            "id": 1,
+            "name": "Pork"
+        },
+        {
+            "catId": 1,
+            "id": 2,
+            "name": "Chicken"
+        },
+        {
+            "catId": 1,
+            "id": 3,
+            "name": "Beef"
+        },
+        {
+            "catId": 2,
+            "id": 4,
+            "name": "Milk"
+        },
+        {
+            "catId": 2,
+            "id": 5,
+            "name": "Cheese"
+        },
+        {
+            "catId": 3,
+            "id": 6,
+            "name": "Rye"
+        },
+        {
+            "catId": 3,
+            "id": 7,
+            "name": "Cibatta"
+        },
+        {
+            "catId": 3,
+            "id": 8,
+            "name": "Sourdough"
+        },
+        {
+            "catId": 4,
+            "id": 9,
+            "name": "Tomato"
+        },
+        {
+            "catId": 4,
+            "id": 10,
+            "name": "Onion"
+        },
+        {
+            "catId": 4,
+            "id": 11,
+            "name": "Carrot"
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "name": "meat"
+        },
+        {
+            "id": 2,
+            "name": "dairy"
+        },
+        {
+            "id": 3,
+            "name": "bread"
+        },
+        {
+            "id": 4,
+            "name": "vegetable"
+        }
+    ],
+    "orders": []
+}

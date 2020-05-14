@@ -1,53 +1,95 @@
-import React, { Component } from 'react';
-import VegetableList from './ProductList/VegetableList';
-import MeatList from './ProductList/MeatList';
-import DairyList from './ProductList/DairyList';
-import BakeryList from './ProductList/BakeryList';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Form from 'react-bootstrap/Form';
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
+import './FormAddToOrder.css';
+import Button from 'react-bootstrap/Button';
 
+const FormCategories = () => {
 
-class FormAddToOrder extends Component {
-    state = {
-        category: 'Selection',
-    }
+    const [categories, setCategories] = useState([]);
+    const [products, setProducts] = useState([]);
+    const [selected, setSelected] = useState([]);
+    const [order, setOrder] = useState([]);
 
-    handleChange(e) {
-        this.setState({
-            category: e.target.value,
+    useEffect(() => {
+        axios.get('http://localhost:3001/categories')
+            .then(response => {
+                setCategories(response.data);
+            });
+    }, []);
+
+    const categoryList = categories.map(cat => {
+        return (
+            <p className="categoryCard" key={cat.id}
+                onClick={() => showProductHandler(cat.id)}>
+                {cat.name}
+            </p>
+        );
+    });
+
+    const showProductHandler = (id) => {
+        setProducts([]);
+        axios.get('http://localhost:3001/products/?catId=' + id)
+            .then(response => {
+                setProducts(response.data);
+            });
+    };
+
+    const addItemHandler = (e, prodid) => {
+        setSelected({
+            name: e.target.name,
+            quantity: e.target.value,
+            prodId: e.target.id,
+            catId: prodid,
         })
     }
 
-    addProductHandler() {
-        return (<p>Product</p>);
+    const addToOrderHandler = () => {
+        setOrder((order) => [...order, selected]);
     }
 
-
-    render() {
+    const productList = products.map(prod => {
         return (
-            <Form>
-                <Form.Group controlId="exampleForm.SelectCustomSizeSm">
-                    <Form.Label htmlFor="product">Choose a category:</Form.Label>
-                    <Form.Control as="select" size="sm" id="product" onChange={this.handleChange.bind(this)} value={this.state.category}>
-                        <option value="select" id="category">Select a category</option>
-                        <option value="vegetable" id="vegetable">Vegetable</option>
-                        <option value="meat" id="meat" >Meat</option>
-                        <option value="dairy" id="dairy" >Dairy Products</option>
-                        <option value="bakery" id="bakery" >Bread</option>
-                    </Form.Control>
-
-                </Form.Group>
-                <Form.Group controlId="exampleForm.SelectCustomSizeSm">
-                    <h2>{this.state.category == 'vegetable' ? <VegetableList /> : ''}</h2>
-                    <h2>{this.state.category == 'meat' ? <MeatList /> : ''}</h2>
-                    <h2>{this.state.category == 'dairy' ? <DairyList /> : ''}</h2>
-                    <h2>{this.state.category == 'bakery' ? <BakeryList /> : ''}</h2>
-                    <button type="submit" onClick={this.addProductHandler.bind(this)}>Add Products</button>
-                </Form.Group>
-            </Form>
-
+            <div key={prod.id} className="product">
+                <h2>{prod.name}</h2>
+                <label htmlFor="">Select quantity</label>
+                <input type="number" name={prod.name} id={prod.id} onChange={(event) => addItemHandler(event, prod.catId)} min="0" max="5" />
+                <Button variant="outline-success" onClick={addToOrderHandler}>PreOrder</Button>
+            </div>
         );
-    }
+    });
+
+    const orderList = order.map((o) => {
+        return (
+            <p key={o.prodId} className="preOrder">
+                x {o.name}: {o.quantity}</p>
+        );
+    });
+
+    const postOrderHandler = () => {
+        axios.post('http://localhost:3001/orders', { order }).then(response => {
+            console.log(response.data);
+            setOrder([]);
+        });
+    };
+
+    return (
+        <div>
+            <div>
+                <h1>Choose a category</h1>
+                <div>{categoryList}</div>
+                <div>{productList}</div>
+            </div>
+            <div>
+                {orderList == 0 ? (<p>Please select products</p>) : (
+                    <div>
+                        <h2>Your preorder</h2>
+                        <p>{orderList}</p>
+                    </div>
+                )}
+            </div>
+            <Button variant="outline-success" onClick={postOrderHandler}>Place your order</Button>
+        </div>
+    );
 }
 
-export default FormAddToOrder;
+export default FormCategories;
