@@ -78,30 +78,30 @@
     {
       "order": [
         {
+          "name": "Pork",
+          "quantity": "4",
+          "prodId": "1",
+          "catId": 1
+        },
+        {
           "name": "Chicken",
           "quantity": "1",
           "prodId": "2",
           "catId": 1
         },
         {
-          "name": "Cheese",
-          "quantity": "2",
-          "prodId": "5",
-          "catId": 2
-        },
-        {
-          "name": "Rye",
+          "name": "Beef",
           "quantity": "1",
-          "prodId": "6",
-          "catId": 3
-        },
-        {
-          "name": "Carrot",
-          "quantity": "4",
-          "prodId": "11",
-          "catId": 4
+          "prodId": "3",
+          "catId": 1
         }
       ],
+      "username": {
+        "name": "antti"
+      },
+      "address": {
+        "place": "helsinki"
+      },
       "id": 1
     }
   ],

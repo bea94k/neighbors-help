@@ -25,3 +25,7 @@
 .preOrder{
     margin: 1rem;
   }
+
+  .selectedItem{
+    cursor: pointer;
+  }
