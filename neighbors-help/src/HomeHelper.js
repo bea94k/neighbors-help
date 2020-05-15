@@ -29,15 +29,17 @@ const HomeHelper = () => {
 
     const OrderList = order.length > 0 ? order.map((o) => {
         // if the orders list is not empty, map and display the orders from DB
+        console.log(o);
         return (
             <OrderCard
                 key={o.id}
-                username={o.username}
+                username={o.username.name}
                 firstname={o.firstname}
-                address={o.address}
+                address={o.address.place}
                 phone={o.phone}
                 order={o.order}
             />
+
         )
         // if the orders db empty, display a "no orders found" message
     }) : <h4>{message}</h4>
