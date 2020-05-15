@@ -4,29 +4,30 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import OrderCard from "./Components/OrderCard";
+import OrderCard from './Components/OrderCard';
+import CardColumns from 'react-bootstrap/CardColumns';
+
+// TO DO: when orders db empty, make the message say it's empty, not hang on "loading..."
 
 const HomeHelper = () => {
-  const [order, setOrder] = useState([]);
-  const [message, setMessage] = useState();
+    const [order, setOrder] = useState([]);
+    const [message, setMessage] = useState();
 
-  useEffect(() => {
-    setMessage(<h4>Loading...</h4>);
-    axios
-      .get("http://localhost:3005/orders")
-      .then((response) => {
-        const ordersFromDB = response.data.slice(0, 15);
-        setOrder(ordersFromDB);
-        console.log(ordersFromDB);
-      })
-      .catch((err) => {
-        setMessage(`Something went wrong. ${err}`);
-      });
-  }, []);
+    useEffect(() => {
+        setMessage(<h4>Loading...</h4>);
+        axios.get('http://localhost:3001/orders')
+            .then((response) => {
+                const ordersFromDB = response.data.slice(0, 15);
+                setOrder(ordersFromDB);
+                console.log(ordersFromDB);
+            })
+            .catch((err) => {
+                setMessage(`Something went wrong. ${err}`)
+            })
+    }, []);
 
-  const OrderList =
-    order.length > 0 ? (
-      order.map((o) => {
+
+    const OrderList = order.length > 0 ? order.map((o) => {
         // if the orders list is not empty, map and display the orders from DB
         return (
           <OrderCard
@@ -39,17 +40,18 @@ const HomeHelper = () => {
           />
         );
         // if the orders db empty, display a "no orders found" message
-      })
-    ) : (
-      <h4>{message}</h4>
+    }) : <h4>{message}</h4>
+
+
+    return (
+        <div>
+            <h2>Who do you want to help today?</h2>
+            <CardColumns>
+                {OrderList}
+            </CardColumns>
+        </div>
     );
 
-  return (
-    <div>
-      HOME HELPER
-      {OrderList}
-    </div>
-  );
 };
 
 export default HomeHelper;

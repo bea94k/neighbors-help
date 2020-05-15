@@ -1,25 +1,27 @@
 import React from "react";
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 import { Link } from "react-router-dom";
 
 const PostCard = ({ username, firstname, address, phone, order, link }) => {
-    console.log(order);
-    let i;
-    let extractedOrder = [];
-    for (i = 0; i < order.length; i++) {
-        let productSet = `${order[i].name} - ${order[i].quantity}; `;
-        extractedOrder.push(productSet);
-    }
+    const mappedOrder = order.map((productSet) => {
+        return (
+            <p>{productSet.name}: {productSet.quantity}</p>
+        )
+    })
 
     return (
-        <div>
-            <h2>{firstname}</h2>
-            <p>{username}</p>
-            <p>{address}</p>
-            <p>{phone}</p>
-            <p>{extractedOrder}</p>
+        <Card style={{ width: '18rem' }}>
+            <Card.Header as="h4">{firstname}</Card.Header>
+            <ListGroup variant="flush">
+                <ListGroup.Item><p>{username}</p></ListGroup.Item>
+                <ListGroup.Item><p>{address}</p></ListGroup.Item>
+                <ListGroup.Item><p>{phone}</p></ListGroup.Item>
+                <ListGroup.Item><p>Order:</p>{mappedOrder}</ListGroup.Item>
+            </ListGroup>
             {/*  <Link to={link}>Read more</Link> */}
-        </div>
+        </Card>
     );
 };
 
