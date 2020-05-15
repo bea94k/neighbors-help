@@ -9,7 +9,7 @@ import "./Register.css";
 const Register = () => {
   return (
     <div className="register-main">
-      <Form style={{ width: "50%" }}>
+      <Form style={{ width: "40%" }}>
         <h2>Register</h2>
         <Form.Group controlId="formFirstName">
           <Form.Label>First name:</Form.Label>

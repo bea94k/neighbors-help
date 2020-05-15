@@ -26,10 +26,11 @@ const Login = () => {
         <Button variant="success" type="submit">
           Submit
         </Button>
-      </Form>
+      
       <Link to={"/register"}>Register</Link>
+      </Form>
       <div>
-        <img src="Assets/logo.jpeg" alt="vegetables" />
+        <img src="vegetables.jpg" alt="vegetables" />
       </div>
     </div>
   );

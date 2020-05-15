@@ -1,8 +1,19 @@
 .login-main {
   padding: 1rem;
   margin: 2rem;
+  display: flex;
 }
 
 body {
   background-color: #f1fcf1;
+}
+img{
+  margin: 1rem;
+  width: 500px;
+  border-radius: 5px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .vegetables {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
