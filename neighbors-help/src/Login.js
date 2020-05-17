@@ -30,7 +30,7 @@ const Login = () => {
       <Link to={"/register"}>Register</Link>
       </Form>
       <div>
-        <img src="vegetables.jpg" alt="vegetables" />
+        <img src="logo.jpeg" alt="Logo" />
       </div>
     </div>
   );

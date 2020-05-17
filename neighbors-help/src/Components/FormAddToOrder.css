@@ -9,6 +9,10 @@
     border: 1px solid rgba(139, 139, 139, 0.25);
 }
 
+.category{
+  margin: 2rem;
+}
+
 .product{
     margin: 1rem;
 }

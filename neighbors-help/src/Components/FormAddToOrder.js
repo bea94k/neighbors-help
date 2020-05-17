@@ -74,7 +74,7 @@ const FormCategories = () => {
 
     return (
         <div>
-            <div>
+            <div className="category">
                 <h1>Choose a category</h1>
                 <div>{categoryList}</div>
                 <div>{productList}</div>

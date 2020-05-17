@@ -9,7 +9,7 @@ body {
 }
 img{
   margin: 1rem;
-  width: 500px;
+  width: 700px;
   border-radius: 5px;
 }
 @media (prefers-reduced-motion: no-preference) {

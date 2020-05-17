@@ -47,8 +47,8 @@ const Register = () => {
 
 
     return (
-        <div>
-            <Form style={{ width: '80%' }}>
+        <div className="register-main">
+            <Form style={{ width: '40%' }}>
                 <h2>Register</h2>
                 <Form.Group controlId="formFirstName">
                     <Form.Label>First name:</Form.Label>
@@ -101,12 +101,16 @@ const Register = () => {
                         checked={newUser.isHelper === 'customer'} />
                 </div>
 
-                <Button variant="primary" type="submit" onClick={addUserHandler}>
+                <Button variant="success" type="submit" onClick={addUserHandler}>
                     Submit
                   </Button>
             </Form>
             <Link to={'/'}>Log in</Link>
+            <div>
+    <img className='vegetable' alt='vegetable' src='vegetables.jpg' />
+</div>
         </div>
+        
 
        
   );
