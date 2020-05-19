@@ -78,30 +78,30 @@
     {
       "order": [
         {
+          "name": "Pork",
+          "quantity": "4",
+          "prodId": "1",
+          "catId": 1
+        },
+        {
           "name": "Chicken",
           "quantity": "1",
           "prodId": "2",
           "catId": 1
         },
         {
-          "name": "Cheese",
-          "quantity": "2",
-          "prodId": "5",
-          "catId": 2
-        },
-        {
-          "name": "Rye",
+          "name": "Beef",
           "quantity": "1",
-          "prodId": "6",
-          "catId": 3
-        },
-        {
-          "name": "Carrot",
-          "quantity": "4",
-          "prodId": "11",
-          "catId": 4
+          "prodId": "3",
+          "catId": 1
         }
       ],
+      "username": {
+        "name": "antti"
+      },
+      "address": {
+        "place": "helsinki"
+      },
       "id": 1
     },
     {
@@ -133,74 +133,19 @@
       "id": 1
     },
     {
-      "firstname": "",
-      "lastname": "",
-      "username": "",
-      "password": "",
-      "address": "",
-      "phone": "",
-      "isHelper": "helper",
+      "username": "bea94k",
+      "password": "bea94k",
       "id": 2
     },
     {
-      "firstname": "",
-      "lastname": "",
-      "username": "",
-      "password": "",
-      "address": "",
-      "phone": "",
+      "firstname": "jane",
+      "lastname": "tarzan",
+      "username": "jane",
+      "password": "jsne",
+      "address": "jungle",
+      "phone": "235676534",
       "isHelper": "helper",
       "id": 3
-    },
-    {
-      "firstname": "",
-      "lastname": "",
-      "username": "",
-      "password": "",
-      "address": "",
-      "phone": "",
-      "isHelper": "customer",
-      "id": 4
-    },
-    {
-      "firstname": "",
-      "lastname": "",
-      "username": "",
-      "password": "",
-      "address": "",
-      "phone": "",
-      "isHelper": "customer",
-      "id": 5
-    },
-    {
-      "firstname": "",
-      "lastname": "",
-      "username": "",
-      "password": "",
-      "address": "",
-      "phone": "",
-      "isHelper": "customer",
-      "id": 6
-    },
-    {
-      "firstname": "joe",
-      "lastname": "joe",
-      "username": "joe",
-      "password": "joe",
-      "address": "joe",
-      "phone": "1111",
-      "isHelper": "helper",
-      "id": 7
-    },
-    {
-      "firstname": "joe",
-      "lastname": "joe",
-      "username": "joe",
-      "password": "joe",
-      "address": "joe",
-      "phone": "1111",
-      "isHelper": "helper",
-      "id": 8
     }
   ]
 }

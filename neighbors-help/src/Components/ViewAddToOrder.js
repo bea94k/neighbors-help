@@ -19,15 +19,18 @@ const ViewAddToOrder = () => {
             });
     }, []);
 
-    const ordersList = orders.map(({ id, order }) => {
+    const ordersList = orders.map(({ id, order, username, address }) => {
         return (
             <Card>
                 <ListGroup variant="flush">
+
                     <p key={id}>Order ID: {id}</p>
-                    {order.map(order => {
+                    {order.map(o => {
                         return (
                             <ListGroup.Item>
-                                x {order.name}: {order.quantity}
+                                x {o.name}: {o.quantity}
+                                {o.username}
+                                {o.address}
                             </ListGroup.Item>
                         );
                     })}
