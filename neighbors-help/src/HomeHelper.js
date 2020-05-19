@@ -15,9 +15,10 @@ const HomeHelper = () => {
 
     useEffect(() => {
         setMessage(<h4>Loading...</h4>);
-        axios.get('http://localhost:3001/orders')
+        axios.get('https://neighbours-api.herokuapp.com/orders/')
             .then((response) => {
-                const ordersFromDB = response.data.slice(0, 15);
+                console.log(response)
+                const ordersFromDB = response.data.orders.slice(0, 15);
                 setOrder(ordersFromDB);
                 console.log(ordersFromDB);
             })
@@ -32,10 +33,10 @@ const HomeHelper = () => {
         console.log(o);
         return (
             <OrderCard
-                key={o.id}
-                username={o.username.name}
+                key={o._id}
+                username={o.username}
                 firstname={o.firstname}
-                address={o.address.place}
+                address={o.address}
                 phone={o.phone}
                 order={o.order}
             />

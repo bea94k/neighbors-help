@@ -7,7 +7,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 const PostCard = ({ username, firstname, address, phone, order, link }) => {
     const mappedOrder = order.map((productSet) => {
         return (
-            <p>{productSet.name}: {productSet.quantity}</p>
+            <p>{productSet.product}: {productSet.quantity}</p>
         )
     })
 

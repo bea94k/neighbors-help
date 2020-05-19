@@ -14,9 +14,10 @@ const FormCategories = () => {
     const [address, setAddress] = useState();
 
     useEffect(() => {
-        axios.get('http://localhost:3001/categories')
+        axios.get('https://neighbours-api.herokuapp.com/categories/categories')
             .then(response => {
-                setCategories(response.data);
+                setCategories(response.data.category);
+                console.log(response.data.category)
             });
     }, []);
 
