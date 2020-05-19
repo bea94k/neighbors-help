@@ -1,8 +1,8 @@
 // homepgae for helper
 // display list of orders from database
 
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 import OrderCard from './Components/OrderCard';
 import CardColumns from 'react-bootstrap/CardColumns';
@@ -53,6 +53,7 @@ const HomeHelper = () => {
             </CardColumns>
         </div>
     );
-}
+
+};
 
 export default HomeHelper;

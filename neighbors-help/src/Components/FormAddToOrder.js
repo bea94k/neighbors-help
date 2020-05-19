@@ -112,7 +112,7 @@ const FormCategories = () => {
                     Delivery address:<input type="text" name="address" onChange={(event) => inputAddressHandler(event)} />
                 </label>
             </div>
-            <div>
+            <div className="category">
                 <h3>Choose a category</h3>
                 <div>{categoryList}</div>
                 <div>{productList}</div>
