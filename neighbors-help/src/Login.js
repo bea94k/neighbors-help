@@ -49,8 +49,9 @@ const Login = () => {
         <Button variant="success" type="submit" onClick={logUserInHandler}>
           Submit
                   </Button>
+                  <Button className="regibutton" variant="outline-success" type="submit"><Link to={'/register'}>Register</Link></Button>
       </Form>
-      <Link to={'/register'}>Register</Link>
+      
       <div>
         <img src="logo.jpeg" alt="Logo" />
       </div>

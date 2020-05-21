@@ -21,7 +21,7 @@ const ViewAddToOrder = () => {
 
     const ordersList = orders.map(({ id, order, username, address }) => {
         return (
-            <Card>
+            <Card className="ordercard">
                 <ListGroup variant="flush">
 
                     <p key={id}>Order ID: {id}</p>
@@ -40,10 +40,10 @@ const ViewAddToOrder = () => {
     });
 
     return (
-        <>
-            <Card.Title>All Orders:</Card.Title>
+        <div className="cardtitle">
+            <Card.Title><h3>All Orders:</h3></Card.Title>
             <p>{ordersList}</p>
-        </>
+        </div>
     );
 }
 

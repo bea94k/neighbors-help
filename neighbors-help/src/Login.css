@@ -12,8 +12,14 @@ img{
   width: 700px;
   border-radius: 5px;
 }
-@media (prefers-reduced-motion: no-preference) {
-  .vegetables {
-    animation: App-logo-spin infinite 20s linear;
+@media only screen and (max-width: 600px) {
+  body {
+   display: flex;
+   flex-direction: column;
   }
+}
+
+.regibutton{
+  margin-left: 50px;
+  color: white;
 }
