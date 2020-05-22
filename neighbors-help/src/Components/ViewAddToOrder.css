@@ -1,0 +1,11 @@
+.ordercard{
+    margin: 2rem;
+    width: 150px;
+    background-color: gold;
+    display: inline-block;
+ 
+}
+
+.cardtitle{
+    margin: 2rem;
+}

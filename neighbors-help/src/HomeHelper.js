@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import "./HomeHelper.css"
 import OrderCard from './Components/OrderCard';
 import CardColumns from 'react-bootstrap/CardColumns';
 
@@ -49,7 +49,7 @@ const HomeHelper = () => {
     return (
         <div>
             <h2>Who do you want to help today?</h2>
-            <CardColumns>
+            <CardColumns className="cards">
                 {OrderList}
             </CardColumns>
         </div>

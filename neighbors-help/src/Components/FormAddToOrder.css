@@ -10,7 +10,8 @@
 }
 
 .category{
-  margin: 2rem;
+  margin: 1rem;
+
 }
 
 .product{
@@ -28,8 +29,19 @@
 
 .preOrder{
     margin: 1rem;
-  }
+}
 
-  .selectedItem{
+.selectedItem{
     cursor: pointer;
-  }
+}
+
+.order{
+    margin: 2rem;
+}
+
+.username{
+    margin-left: 4rem;
+}
+ .address{
+    margin-left: 1.5rem;
+}

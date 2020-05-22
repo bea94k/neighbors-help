@@ -102,21 +102,22 @@ const FormCategories = () => {
 
 
     return (
-        <div>
+        <div className="order">
             <div>
                 <h3>Your account: </h3>
                 <label htmlFor="">
-                    Username: <input type="text" name="username" onChange={(event) => inputUsernameHandler(event)} />
+                    Username: <input type="text" className="username" onChange={(event) => inputUsernameHandler(event)} />
                 </label>
                 <br />
                 <label htmlFor="">
-                    Delivery address:<input type="text" name="address" onChange={(event) => inputAddressHandler(event)} />
+                    Delivery address:<input type="text" className="address" onChange={(event) => inputAddressHandler(event)} />
                 </label>
             </div>
             <div className="category">
                 <h3>Choose a category</h3>
                 <div>{categoryList}</div>
                 <div>{productList}</div>
+               
             </div>
             <div>
                 {orderList == 0 ? (<p style={{ textDecoration: "underline", color: "red" }}>Please select products</p>) : (
@@ -127,6 +128,7 @@ const FormCategories = () => {
                 )}
             </div>
             <Button variant="outline-success" onClick={postOrderHandler}>Place your order</Button>
+            
         </div >
     );
 }
