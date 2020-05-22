@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import "./HomeHelper.css"
 import OrderCard from './Components/OrderCard';
 import CardColumns from 'react-bootstrap/CardColumns';
 
@@ -31,7 +31,7 @@ const HomeHelper = () => {
         // if the orders list is not empty, map and display the orders from DB
         console.log(o);
         return (
-            <OrderCard
+            <OrderCard 
                 key={o.id}
                 username={o.username.name}
                 firstname={o.firstname}
@@ -48,7 +48,7 @@ const HomeHelper = () => {
     return (
         <div>
             <h2>Who do you want to help today?</h2>
-            <CardColumns>
+            <CardColumns className="cards">
                 {OrderList}
             </CardColumns>
         </div>

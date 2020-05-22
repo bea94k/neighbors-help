@@ -102,8 +102,9 @@ const Register = () => {
                 <Button variant="success" type="submit" onClick={addUserHandler}>
                     Submit
                   </Button>
+                  <Button className="logbutton" variant="outline-success" type="submit"><Link to={'/'}>Log in</Link></Button>
             </Form>
-            <Link to={'/'}>Log in</Link>
+            
             <div>
                 <img className='vegetable' alt='vegetable' src='vegetables.jpg' />
             </div>
