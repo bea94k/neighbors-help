@@ -1,5 +1,7 @@
 # Grocery Neighbors - REACT20K BCH, May 2020
 
+**Not maintained!** School stuff.
+
 Grocery Neighbors is a web app built in the end of Intro to Node.js and Intro to React courses at Business College Helsinki. The app is meant as a platform where users can ask for help or offer help with doing grocery shopping. Users can put their shopping list in the system and other users will pick up the order and bring it to the ordering user's address.
 
 ## Installation
